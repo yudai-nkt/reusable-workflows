@@ -4,7 +4,7 @@ on:
   workflow_call:
     outputs:
       token:
-        description: foo
+        description: Generated GitHub Apps token
         value: ${{ jobs.generate-github-apps-token.outputs.token }}
 
 jobs:
