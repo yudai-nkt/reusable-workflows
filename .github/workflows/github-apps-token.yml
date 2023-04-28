@@ -18,4 +18,4 @@ jobs:
     steps:
       - id: generate
         run: ./generate-github-apps-token.sh
-        working-directory: ./scripts
+        working-directory: scripts
