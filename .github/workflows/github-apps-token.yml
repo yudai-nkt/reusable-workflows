@@ -17,5 +17,4 @@ jobs:
       token: ${{ steps.generate.outputs.token }}
     steps:
       - id: generate
-        run: ./generate-github-apps-token.sh
-        working-directory: scripts
+        run: bash -c "$(curl -fsSL https://raw.githubusercontent.com/yudai-nkt/reusable-workflows/main/scripts/generate-github-apps-token.sh)"
