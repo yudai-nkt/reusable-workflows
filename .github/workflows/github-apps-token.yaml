@@ -1,6 +1,11 @@
 name: "Generate GitHub Apps token"
 
-on:  workflow_call
+on:
+  workflow_call:
+    outputs:
+      token:
+        description: foo
+        value: ${{ jobs.generate-github-apps-token.outputs.token }}
 
 jobs:
   generate-github-apps-token:
@@ -8,5 +13,8 @@ jobs:
     env:
       APP_ID: ${{ secrets.APP_ID }}
       PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+    outputs:
+      token: ${{ steps.generate.outputs.token }}
     steps:
-      - run: ./generate-github-apps-token.sh
+      - id: generate
+        run: ./generate-github-apps-token.sh
