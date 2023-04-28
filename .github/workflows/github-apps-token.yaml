@@ -1,0 +1,12 @@
+name: "Generate GitHub Apps token"
+
+on:  workflow_call
+
+jobs:
+  generate-github-apps-token:
+    runs-on: ubuntu-latest
+    env:
+      APP_ID: ${{ secrets.APP_ID }}
+      PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+    steps:
+      - run: ./generate-github-apps-token.sh
